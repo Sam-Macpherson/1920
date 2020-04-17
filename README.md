@@ -2,10 +2,13 @@
 
 Game about twirling pizzas and selling alcohol.
 
-## Build and Run
-Make sure you have cx_Freeze installed.
+## Install packages
+`$ python setup.py develop` will install the necessary packages.
 
-Run `python setup.py build` in the project directory.
+## Build and Run
+Make sure you have cx_Freeze installed, it should have come with the `setup.py` command.
+
+Run `python build_script.py build` in the project directory.
 
 Navigate to `1920/build/exe.win32-3.8`.
 
