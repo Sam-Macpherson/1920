@@ -1,3 +1,5 @@
+# Font constants.
+
 import pygame.freetype
 
 import utilities

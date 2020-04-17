@@ -3,6 +3,7 @@ import pygame
 import platform
 import constants
 
+from exceptions import Terminate
 from scene_manager import SceneManager
 
 
@@ -23,19 +24,22 @@ def main():
     while running:
         if not scene_manager.current_scene():
             scene_manager.change_scene(constants.MAIN_MENU)
+        try:
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_q:
+                    raise Terminate
+                elif event.type == pygame.MOUSEMOTION:
+                    scene_manager.handle_mouse_motion(pygame.mouse.get_pos())
+                elif event.type == pygame.MOUSEBUTTONUP:
+                    scene_manager.handle_mouse_button_up(pygame.mouse.get_pos())
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    scene_manager.handle_mouse_button_down(pygame.mouse.get_pos())
 
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN and event.key == pygame.K_q:
-                running = False
-            elif event.type == pygame.MOUSEMOTION:
-                scene_manager.handle_mouse_motion(pygame.mouse.get_pos())
-            elif event.type == pygame.MOUSEBUTTONUP:
-                scene_manager.handle_mouse_button_up(pygame.mouse.get_pos())
-            elif event.type == pygame.MOUSEBUTTONDOWN:
-                scene_manager.handle_mouse_button_down(pygame.mouse.get_pos())
+            scene_manager.draw_scene(screen)
+            pygame.display.update()
 
-        scene_manager.draw_scene(screen)
-        pygame.display.update()
+        except Terminate:
+            running = False
 
 
 main()
