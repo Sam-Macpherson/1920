@@ -1,6 +1,5 @@
-import os
-
 import pygame
+import utilities
 
 
 class Scene:
@@ -8,9 +7,8 @@ class Scene:
     def __init__(self, background):
 
         if isinstance(background, str):
-            base_path = os.path.dirname(__file__)
-            background_path = os.path.join(base_path, background)
-            self._background = pygame.image.load(background_path)
+            utilities.relative_path(background)
+            self._background = pygame.image.load(utilities.relative_path(background, __file__))
         else:
             self._background = background
         super().__init__()

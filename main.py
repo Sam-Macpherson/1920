@@ -31,7 +31,6 @@ while running:
         elif event.type == pygame.MOUSEBUTTONDOWN:
             scene_manager.handle_mouse_button_down(pygame.mouse.get_pos())
 
-
     scene_manager.draw_scene(screen)
     pygame.display.update()
 
