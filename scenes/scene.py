@@ -22,7 +22,13 @@ class Scene:
         elif isinstance(self._background, tuple):
             screen.fill(self._background)
 
-    def handle_event(self, event):
+    def handle_mouse_motion(self, coords):
+        raise NotImplementedError
+
+    def handle_mouse_button_up(self, coords):
+        raise NotImplementedError
+
+    def handle_mouse_button_down(self, coords):
         raise NotImplementedError
 
     def draw(self, screen):

@@ -31,8 +31,14 @@ class SceneManager:
     def current_scene(self):
         return self._current_scene
 
-    def handle_event(self, event):
-        self._current_scene.handle_event(event)
+    def handle_mouse_motion(self, coords):
+        self._current_scene.handle_mouse_motion(coords)
+
+    def handle_mouse_button_up(self, coords):
+        self._current_scene.handle_mouse_button_up(coords)
+
+    def handle_mouse_button_down(self, coords):
+        self._current_scene.handle_mouse_button_down(coords)
 
     def draw_scene(self, screen):
         self._current_scene.draw(screen)
