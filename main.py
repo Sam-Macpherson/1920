@@ -1,6 +1,4 @@
-import ctypes
 import pygame
-import platform
 import constants
 
 from exceptions import Terminate
@@ -8,16 +6,11 @@ from scene_manager import SceneManager
 
 
 def main():
-    pygame.init()
+    # pygame.init()
 
     fullscreen = True
-    if platform.system() == 'Windows':
-        ctypes.windll.user32.SetProcessDPIAware()
-        monitor_dimensions = (ctypes.windll.user32.GetSystemMetrics(0), ctypes.windll.user32.GetSystemMetrics(1))
-    else:
-        monitor_dimensions = (pygame.display.Info().current_w, pygame.display.Info().current_h)
 
-    screen = pygame.display.set_mode(monitor_dimensions, pygame.FULLSCREEN)
+    screen = pygame.display.set_mode(constants.MONITOR_DIMENSIONS, pygame.FULLSCREEN)
     running = True
     scene_manager = SceneManager()
 
