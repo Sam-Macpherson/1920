@@ -2,12 +2,10 @@ import pygame
 import constants
 
 from exceptions import Terminate
-from scene_manager import SceneManager
+from managers import SceneManager
 
 
 def main():
-    # pygame.init()
-
     fullscreen = True
 
     screen = pygame.display.set_mode(constants.MONITOR_DIMENSIONS, pygame.FULLSCREEN)
@@ -16,11 +14,14 @@ def main():
 
     while running:
         if not scene_manager.current_scene():
-            scene_manager.change_scene(constants.MAIN_MENU)
+            scene_manager.change_scene(constants.MAIN_MENU_SCENE)
+
         try:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_q:
                     raise Terminate
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_u:
+                    scene_manager.pop_scene()
                 elif event.type == pygame.MOUSEMOTION:
                     scene_manager.handle_mouse_motion(pygame.mouse.get_pos())
                 elif event.type == pygame.MOUSEBUTTONUP:

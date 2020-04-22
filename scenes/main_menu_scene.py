@@ -4,9 +4,12 @@ from exceptions import Terminate
 from .scene import Scene
 
 
-class MainMenu(Scene):
+class MainMenuScene(Scene):
 
-    def __init__(self):
+    def __init__(self, scene_manager):
+        super().__init__(scene_manager,
+                         'background_images/mainMenuScene.png',
+                         constants.MAIN_MENU_SCENE)
         self._exit_button = Button(
             constants.MAIN_MENU_EXIT_BUTTON_TEXT,
             constants.MAIN_MENU_EXIT_BUTTON_COORDS,
@@ -17,8 +20,16 @@ class MainMenu(Scene):
             constants.MAIN_MENU_SETTINGS_BUTTON_COORDS,
             constants.MAIN_MENU_SETTINGS_BUTTON_DIMENSIONS
         )
-        self._buttons = [self._exit_button, self._settings_button]
-        super().__init__('background_images/mainMenu.png')
+        self._play_button = Button(
+            constants.MAIN_MENU_PLAY_BUTTON_TEXT,
+            constants.MAIN_MENU_PLAY_BUTTON_COORDS,
+            constants.MAIN_MENU_PLAY_BUTTON_DIMENSIONS
+        )
+        self._buttons = [
+            self._exit_button,
+            self._settings_button,
+            self._play_button
+        ]
 
     def handle_mouse_motion(self, coords):
         for button in self._buttons:
@@ -29,6 +40,8 @@ class MainMenu(Scene):
             raise Terminate
         if self._settings_button.handle_mouse_button_up():
             print('Settings button clicked.')
+        if self._play_button.handle_mouse_button_up():
+            self._scene_manager.change_scene(constants.RESTAURANT_SCENE)
 
     def handle_mouse_button_down(self, coords):
         for button in self._buttons:

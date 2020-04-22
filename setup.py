@@ -7,7 +7,14 @@ setup(name='1920',
       author='Sam Macpherson',
       author_email='sam.macpherson15@gmail.com',
       license='LGPL',
-      packages=['constants', 'controls', 'scenes', 'sprites', 'utilities'],
+      packages=[
+            'constants',
+            'controls',
+            'managers',
+            'scenes',
+            'sprites',
+            'utilities'
+      ],
       install_requires=[
           'pygame', 'cx-Freeze',
       ],
