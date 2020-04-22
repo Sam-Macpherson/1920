@@ -2,6 +2,10 @@
 
 Game about twirling pizzas and selling alcohol.
 
+## Trello board
+Join the trello board here:
+https://trello.com/invite/b/qbp1TWH6/556680447d529a666696b99a71d7260f/1920
+
 ## Install packages
 `$ python setup.py develop` will install the necessary packages.
 
