@@ -1,5 +1,5 @@
 import constants
-from scenes import MainMenuScene, RestaurantScene
+from scenes import MainMenuScene, RestaurantScene, AlarmClockScene
 
 
 class SceneFactory:
@@ -10,6 +10,8 @@ class SceneFactory:
             new_scene = MainMenuScene(scene_manager)
         elif scene == constants.RESTAURANT_SCENE:
             new_scene = RestaurantScene(scene_manager)
+        elif scene == constants.ALARM_CLOCK_SCENE:
+            new_scene = AlarmClockScene(scene_manager)
         else:
             new_scene = None
         return new_scene

@@ -1,2 +1,3 @@
 from scenes.main_menu_scene import MainMenuScene
 from scenes.restaurant_scene import RestaurantScene
+from scenes.alarm_clock_scene import AlarmClockScene

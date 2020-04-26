@@ -41,7 +41,7 @@ class MainMenuScene(Scene):
         if self._settings_button.handle_mouse_button_up():
             print('Settings button clicked.')
         if self._play_button.handle_mouse_button_up():
-            self._scene_manager.change_scene(constants.RESTAURANT_SCENE)
+            self._scene_manager.change_scene(constants.ALARM_CLOCK_SCENE)
 
     def handle_mouse_button_down(self, coords):
         for button in self._buttons:

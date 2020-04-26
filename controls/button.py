@@ -18,10 +18,13 @@ class Button:
         self._hovered = self._hit_box.collidepoint(coords)
 
     def handle_mouse_button_up(self):
+        clicked = False
+
         if self._hovered and self._mouse_downed:
-            return True
+            clicked = True
         self._mouse_downed = False
-        return False
+        self._hovered = False
+        return clicked
 
     def handle_mouse_button_down(self):
         if self._hovered:
@@ -37,6 +40,6 @@ class Button:
         screen.fill(border, self._hit_box)
         screen.fill(background,
                     self._hit_box.inflate(-constants.BUTTON_BORDER_WEIGHT, -constants.BUTTON_BORDER_WEIGHT))
-        text, _ = constants.BASKERVILLE_OLD_FACE_72.render(self._text, fgcolor=constants.BLACK)
+        text, _ = constants.BASKERVILLE_OLD_FACE_60.render(self._text, fgcolor=constants.BLACK)
         text_box = text.get_rect(center=self._hit_box.center)
         screen.blit(text, text_box)
