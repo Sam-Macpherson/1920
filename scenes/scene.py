@@ -6,8 +6,7 @@ import utilities
 
 class Scene:
 
-    def __init__(self, scene_manager, background, constant):
-        self._scene_manager = scene_manager
+    def __init__(self, background, constant):
         self._constant = constant
 
         if isinstance(background, str):

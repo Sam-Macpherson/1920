@@ -42,7 +42,6 @@ class MainMenuScene(Scene):
             print('Settings button clicked.')
         if self._play_button.handle_mouse_button_up():
             raise StartGameLoop
-            # self._scene_manager.change_scene(constants.ALARM_CLOCK_SCENE)
 
     def handle_mouse_button_down(self, coords):
         for button in self._buttons:
