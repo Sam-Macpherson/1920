@@ -1,5 +1,6 @@
 import constants
 from controls import Button
+from exceptions import TransitionScene
 from .scene import Scene
 
 
@@ -20,7 +21,7 @@ class AlarmClockScene(Scene):
 
     def handle_mouse_button_up(self, coords):
         if self._skip_button.handle_mouse_button_up():
-            self._scene_manager.change_scene(constants.RESTAURANT_SCENE)
+            raise TransitionScene
 
     def handle_mouse_button_down(self, coords):
         self._skip_button.handle_mouse_button_down()

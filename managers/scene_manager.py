@@ -6,15 +6,18 @@ class SceneFactory:
 
     @staticmethod
     def create_new_scene(scene, scene_manager):
-        if scene == constants.MAIN_MENU_SCENE:
-            new_scene = MainMenuScene(scene_manager)
-        elif scene == constants.RESTAURANT_SCENE:
-            new_scene = RestaurantScene(scene_manager)
-        elif scene == constants.ALARM_CLOCK_SCENE:
-            new_scene = AlarmClockScene(scene_manager)
-        else:
-            new_scene = None
-        return new_scene
+        scene_constant_map = {
+            constants.MAIN_MENU_SCENE: MainMenuScene,
+            constants.ALARM_CLOCK_SCENE: AlarmClockScene,
+            constants.GOING_TO_WORK_SCENE: AlarmClockScene,  # TODO
+            constants.RESTAURANT_SCENE: RestaurantScene,
+            constants.LEAVING_WORK_SCENE: RestaurantScene  # TODO
+        }
+        try:
+            new_scene = scene_constant_map[scene](scene_manager)
+            return new_scene
+        except KeyError:
+            return None
 
 
 class SceneManager:
@@ -42,9 +45,7 @@ class SceneManager:
         if self._current_scene_index != len(self._scene_history) - 1 and \
                 new_scene == self._scene_at(self._current_scene_index + 1).constant():
             self._current_scene_index += 1
-            print('Not creating new scene', new_scene)
         else:
-            print('Creating new scene', new_scene)
             del self._scene_history[self._current_scene_index + 1:]
             scene = SceneFactory.create_new_scene(new_scene, self)
             self._push_scene_to_history(scene)
