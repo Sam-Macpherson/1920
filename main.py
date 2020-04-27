@@ -1,4 +1,6 @@
 import pygame
+from pygame.time import Clock
+
 import constants
 import sprites
 
@@ -6,6 +8,7 @@ from managers import GameStateManager
 
 
 def main():
+    pygame.init()
     # This is here because cx_Freeze won't include image asset folders for some reason.
     hack = sprites.SPRITES_CONSTANT
     # Don't look at that line, look at these lines down here instead! :D

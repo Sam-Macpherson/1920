@@ -12,6 +12,8 @@ class Button:
         self._hit_box = Rect(position, dimensions)
         self._position = position
         self._dimensions = dimensions
+        self._rendered_text, _ = constants.BASKERVILLE_OLD_FACE_60.render(self._text, fgcolor=constants.BLACK)
+
         super().__init__()
 
     def handle_mouse_motion(self, coords):
@@ -40,6 +42,5 @@ class Button:
         screen.fill(border, self._hit_box)
         screen.fill(background,
                     self._hit_box.inflate(-constants.BUTTON_BORDER_WEIGHT, -constants.BUTTON_BORDER_WEIGHT))
-        text, _ = constants.BASKERVILLE_OLD_FACE_60.render(self._text, fgcolor=constants.BLACK)
-        text_box = text.get_rect(center=self._hit_box.center)
-        screen.blit(text, text_box)
+        text_box = self._rendered_text.get_rect(center=self._hit_box.center)
+        screen.blit(self._rendered_text, text_box)
