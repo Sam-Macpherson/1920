@@ -1,3 +1,5 @@
 from scenes.main_menu_scene import MainMenuScene
 from scenes.restaurant_scene import RestaurantScene
 from scenes.alarm_clock_scene import AlarmClockScene
+from scenes.going_to_work_scene import GoingToWorkScene
+from scenes.leaving_work_scene import LeavingWorkScene

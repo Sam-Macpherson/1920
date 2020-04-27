@@ -6,9 +6,8 @@ from .scene import Scene
 
 class MainMenuScene(Scene):
 
-    def __init__(self, scene_manager):
-        super().__init__(scene_manager,
-                         'background_images/mainMenuScene.png',
+    def __init__(self):
+        super().__init__('background_images/mainMenuScene.png',
                          constants.MAIN_MENU_SCENE)
         self._exit_button = Button(
             constants.MAIN_MENU_EXIT_BUTTON_TEXT,

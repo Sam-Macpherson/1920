@@ -4,15 +4,15 @@ from exceptions import TransitionScene
 from .scene import Scene
 
 
-class AlarmClockScene(Scene):
+class GoingToWorkScene(Scene):
 
     def __init__(self):
-        super().__init__('background_images/alarmClockScene.png',
-                         constants.ALARM_CLOCK_SCENE)
+        super().__init__('background_images/goingToWorkScene.png',
+                         constants.GOING_TO_WORK_SCENE)
         self._skip_button = Button(
-            constants.ALARM_CLOCK_SCENE_SKIP_BUTTON_TEXT,
-            constants.ALARM_CLOCK_SCENE_SKIP_BUTTON_COORDS,
-            constants.ALARM_CLOCK_SCENE_SKIP_BUTTON_DIMENSIONS
+            constants.GOING_TO_WORK_SCENE_SKIP_BUTTON_TEXT,
+            constants.MAIN_MENU_EXIT_BUTTON_COORDS,
+            constants.MAIN_MENU_EXIT_BUTTON_DIMENSIONS
         )
 
     def handle_mouse_motion(self, coords):

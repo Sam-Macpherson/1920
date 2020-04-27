@@ -1,22 +1,24 @@
 import constants
-from scenes import MainMenuScene, RestaurantScene, AlarmClockScene
+from scenes import *
 
 
 class SceneFactory:
 
     @staticmethod
-    def create_new_scene(scene, scene_manager):
+    def create_new_scene(scene):
         scene_constant_map = {
             constants.MAIN_MENU_SCENE: MainMenuScene,
             constants.ALARM_CLOCK_SCENE: AlarmClockScene,
-            constants.GOING_TO_WORK_SCENE: AlarmClockScene,  # TODO
+            constants.GOING_TO_WORK_SCENE: GoingToWorkScene,
             constants.RESTAURANT_SCENE: RestaurantScene,
-            constants.LEAVING_WORK_SCENE: RestaurantScene  # TODO
+            constants.MANAGE_BOOKS_SCENE: RestaurantScene,  # TODO
+            constants.LEAVING_WORK_SCENE: LeavingWorkScene
         }
         try:
-            new_scene = scene_constant_map[scene](scene_manager)
+            new_scene = scene_constant_map[scene]()
             return new_scene
         except KeyError:
+            print('key error', scene)
             return None
 
 
@@ -47,7 +49,7 @@ class SceneManager:
             self._current_scene_index += 1
         else:
             del self._scene_history[self._current_scene_index + 1:]
-            scene = SceneFactory.create_new_scene(new_scene, self)
+            scene = SceneFactory.create_new_scene(new_scene)
             self._push_scene_to_history(scene)
 
     def current_scene(self):
