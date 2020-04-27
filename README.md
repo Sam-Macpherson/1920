@@ -7,7 +7,7 @@ Join the trello board here:
 https://trello.com/invite/b/qbp1TWH6/556680447d529a666696b99a71d7260f/1920
 
 ## Install packages
-`$ python setup.py develop` will install the necessary packages.
+`$ pip install -r requirements.txt` will install the necessary packages.
 
 ## Build and Run
 Make sure you have cx_Freeze installed, it should have come with the `setup.py` command.

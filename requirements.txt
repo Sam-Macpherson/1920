@@ -1,0 +1,4 @@
+pygame~=1.9.6
+# You don't actually need this to run the game but it's used for building the project.
+cx-Freeze~=6.1
+setuptools~=41.2.0
