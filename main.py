@@ -1,10 +1,14 @@
 import pygame
 import constants
+import sprites
 
 from managers import GameStateManager
 
 
 def main():
+    # This is here because cx_Freeze won't include image asset folders for some reason.
+    hack = sprites.SPRITES_CONSTANT
+    # Don't look at that line, look at these lines down here instead! :D
     screen = pygame.display.set_mode(constants.MONITOR_DIMENSIONS, pygame.FULLSCREEN)
     game_state_manager = GameStateManager(screen)
 
@@ -15,4 +19,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-print('done')
