@@ -10,7 +10,7 @@ class Label:
         self._box = Rect(position, dimensions)
         self._text = text
         self._multiline = multiline
-        self._rendered_text = constants.BASKERVILLE_OLD_FACE[font_size].render(self._text, fgcolor=constants.BLACK)[0]
+        self._rendered_text = constants.LEMON_MILK_REGULAR[font_size].render(self._text, fgcolor=constants.BLACK)[0]
         super().__init__()
 
     def draw(self, screen):

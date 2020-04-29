@@ -14,8 +14,8 @@ class RestaurantScene(Scene):
                          constants.RESTAURANT_SCENE)
         self._close_restaurant_button = Button(
             constants.CLOSE_RESTAURANT_BUTTON_TEXT,
-            constants.MAIN_MENU_EXIT_BUTTON_COORDS,
-            constants.MAIN_MENU_EXIT_BUTTON_DIMENSIONS
+            constants.RESTAURANT_SCENE_CLOSE_BUTTON_COORDS,
+            constants.RESTAURANT_SCENE_CLOSE_BUTTON_DIMENSIONS
         )
 
     def handle_mouse_motion(self, coords):
@@ -27,10 +27,6 @@ class RestaurantScene(Scene):
 
     def handle_mouse_button_down(self, coords):
         self._close_restaurant_button.handle_mouse_button_down()
-
-    def draw(self, screen):
-        super().draw(screen)
-        self._close_restaurant_button.draw(screen)
 
     def draw(self, screen):
         super().draw(screen)
