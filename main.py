@@ -16,8 +16,12 @@ def main():
     game_state_manager = GameStateManager(screen)
 
     while game_state_manager.game_is_running():
+        # Handle all events.
         for event in pygame.event.get():
             game_state_manager.handle_event(event)
+        # Draw the screen.
+        game_state_manager.draw(screen)
+        pygame.display.update()
 
 
 if __name__ == "__main__":

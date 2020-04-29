@@ -15,7 +15,7 @@ ALARM_CLOCK_SCENE_SKIP_BUTTON_TEXT = 'Go to work'
 GOING_TO_WORK_SCENE_SKIP_BUTTON_TEXT = 'Skip'
 
 # Restaurant scene strings.
-CLOSE_RESTAURANT_BUTTON_TEXT = 'Close up'
+CLOSE_RESTAURANT_BUTTON_TEXT = 'Close shop'
 
 # Leaving work scene strings.
 LEAVING_WORK_SCENE_SKIP_BUTTON_TEXT = 'Skip'

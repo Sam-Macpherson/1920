@@ -53,10 +53,6 @@ class GameStateManager:
                 self._scene_manager.handle_mouse_button_up(pygame.mouse.get_pos())
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 self._scene_manager.handle_mouse_button_down(pygame.mouse.get_pos())
-
-            self._scene_manager.draw_scene(self._screen)
-
-            pygame.display.update()
         except StartGameLoop:
             self._game_loop_is_running = True
             self._current_game_loop_index = 0
@@ -64,5 +60,9 @@ class GameStateManager:
         except TransitionScene:
             self._current_game_loop_index = (self._current_game_loop_index + 1) % len(self._game_loop_states)
             self._scene_manager.change_scene(self._game_loop_states[self._current_game_loop_index])
+            self._scene_manager.handle_mouse_motion(pygame.mouse.get_pos())
         except Terminate:
             self._game_running = False
+
+    def draw(self, screen):
+        self._scene_manager.draw_scene(screen)
