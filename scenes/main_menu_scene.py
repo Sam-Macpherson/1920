@@ -1,5 +1,5 @@
 import constants
-from controls import Button
+from controls import Button, Label
 from exceptions import Terminate, StartGameLoop
 from .scene import Scene
 
@@ -23,6 +23,12 @@ class MainMenuScene(Scene):
             constants.MAIN_MENU_PLAY_BUTTON_TEXT,
             constants.MAIN_MENU_PLAY_BUTTON_COORDS,
             constants.MAIN_MENU_PLAY_BUTTON_DIMENSIONS
+        )
+        self._long_label_test = Label(
+            (20, 20),
+            (600, 700),
+            'This is a very long string This is a very long string This is a very long string This is a very long string This is a very long string',
+            multiline=True
         )
         self._buttons = [
             self._exit_button,
@@ -48,5 +54,6 @@ class MainMenuScene(Scene):
 
     def draw(self, screen):
         super().draw(screen)
+        self._long_label_test.draw(screen)
         for button in self._buttons:
             button.draw(screen)
