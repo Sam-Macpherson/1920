@@ -8,14 +8,15 @@ class Label:
 
     @staticmethod
     def _render_multiline(text, dimensions, font_size):
-        text_surface = Surface(dimensions)  # , constants.SRCALPHA)
+        text_surface = Surface(dimensions, constants.SRCALPHA)
         words = text.split(' ')
-        font = constants.LEMON_MILK_REGULAR[font_size]
-        space = font.get_metrics(' ', font_size)[0][4]
+        font = constants.MONOFONTO[font_size]
+        # space = font.get_metrics(' ', font_size)[0][4]
+        space = font.size(' ')[0]
         max_width, max_height = dimensions
         x, y = 0, 0
         for word in words:
-            word_surface = font.render(word, fgcolor=constants.WHITE)[0]
+            word_surface = font.render(word, True, constants.BLACK)
             word_width, word_height = word_surface.get_size()
             if x + word_width >= max_width:
                 x = 0  # Reset x to new line
@@ -31,7 +32,7 @@ class Label:
         if multiline:
             self._rendered_text = self._render_multiline(text, dimensions, font_size)
         else:
-            self._rendered_text = constants.LEMON_MILK_REGULAR[font_size].render(self._text, fgcolor=constants.BLACK)[0]
+            self._rendered_text = constants.MONOFONTO[font_size].render(self._text, True, constants.BLACK)
         super().__init__()
 
     def draw(self, screen):

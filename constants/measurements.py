@@ -15,6 +15,20 @@ else:
 # Coordinates
 ORIGIN = (0, 0)
 
+# Dialog box orientations.
+DIALOG_BOX_ORIENTATION_LEFT = 0
+DIALOG_BOX_ORIENTATION_RIGHT = 1
+
+# Dialog box positioning and measurements.
+DIALOG_BOX_COORDS = (
+    MONITOR_DIMENSIONS[0] // 10,
+    MONITOR_DIMENSIONS[1] - (MONITOR_DIMENSIONS[1] // 3)
+)
+DIALOG_BOX_DIMENSIONS = (
+    MONITOR_DIMENSIONS[0] // 2,
+    MONITOR_DIMENSIONS[1] // 3
+)
+DIALOG_BOX_TEXT_PADDING = 40
 
 # Button positioning and measurements.
 BUTTON_BORDER_WEIGHT = 10

@@ -24,12 +24,12 @@ class MainMenuScene(Scene):
             constants.MAIN_MENU_PLAY_BUTTON_COORDS,
             constants.MAIN_MENU_PLAY_BUTTON_DIMENSIONS
         )
-        self._long_label_test = Label(
-            (20, 20),
-            (600, 700),
-            'This is a very long string This is a very long string This is a very long string This is a very long string This is a very long string',
-            multiline=True
-        )
+        # self._long_label_test = Label(
+        #     (20, 20),
+        #     (600, 700),
+        #     'This is a very long string This is a very long string This is a very long string This is a very long string This is a very long string',
+        #     multiline=True
+        # )
         self._buttons = [
             self._exit_button,
             self._settings_button,
@@ -54,6 +54,6 @@ class MainMenuScene(Scene):
 
     def draw(self, screen):
         super().draw(screen)
-        self._long_label_test.draw(screen)
+        # self._long_label_test.draw(screen)
         for button in self._buttons:
             button.draw(screen)

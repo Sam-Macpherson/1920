@@ -5,10 +5,16 @@ import pygame.freetype
 import constants.measurements as measurements
 import utilities
 
-pygame.freetype.init()
+# pygame.freetype.init()
+pygame.font.init()
+#
+# BASKERVILLE_OLD_FACE = [
+#     pygame.freetype.Font(utilities.relative_path('font_files/baskerville_old_face.ttf', __file__), i)
+#     for i in range(0, measurements.MONITOR_DIMENSIONS[0])
+# ]
 
-BASKERVILLE_OLD_FACE = [
-    pygame.freetype.Font(utilities.relative_path('baskerville_old_face.ttf', __file__), i)
+MONOFONTO = [
+    pygame.font.Font(utilities.relative_path('font_files/monofonto.ttf', __file__), i)
     for i in range(0, measurements.MONITOR_DIMENSIONS[0])
 ]
 
@@ -28,7 +34,7 @@ kindly contact me at:
 email address: marsnev@marsnev.com
 
 """
-LEMON_MILK_REGULAR = [
-    pygame.freetype.Font(utilities.relative_path('LEMONMILK-Regular.otf', __file__), i)
-    for i in range(0, measurements.MONITOR_DIMENSIONS[0])
-]
+# LEMON_MILK_REGULAR = [
+#     pygame.font.Font(utilities.relative_path('font_files/LEMONMILK-Regular.otf', __file__), i)
+#     for i in range(0, measurements.MONITOR_DIMENSIONS[0])
+# ]
