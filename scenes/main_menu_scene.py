@@ -30,6 +30,9 @@ class MainMenuScene(Scene):
             self._play_button
         ]
 
+    def handle_key_down(self, key):
+        pass
+
     def handle_mouse_motion(self, coords):
         for button in self._buttons:
             button.handle_mouse_motion(coords)

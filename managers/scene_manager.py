@@ -63,6 +63,8 @@ class SceneManager(MouseListener, KeyListener):
     def handle_key_down(self, key):
         if key == K_u:
             self._pop_scene()
+        else:
+            self.current_scene().handle_key_down(key)
 
     def handle_mouse_motion(self, coords):
         self.current_scene().handle_mouse_motion(coords)

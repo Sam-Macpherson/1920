@@ -11,7 +11,6 @@ class Label:
         text_surface = Surface(dimensions, constants.SRCALPHA)
         words = text.split(' ')
         font = constants.MONOFONTO[font_size]
-        # space = font.get_metrics(' ', font_size)[0][4]
         space = font.size(' ')[0]
         max_width, max_height = dimensions
         x, y = 0, 0
@@ -25,15 +24,23 @@ class Label:
             x += word_width + space
         return text_surface
 
-    def __init__(self, position, dimensions, text, font_size=84, multiline=False):
+    def __init__(self, position, dimensions, string, font_size=84, multiline=False):
+        self._position = position
+        self._dimensions = dimensions
         self._box = Rect(position, dimensions)
-        self._text = text
+        self._string = string
+        self._font_size = font_size
         self._multiline = multiline
-        if multiline:
-            self._rendered_text = self._render_multiline(text, dimensions, font_size)
-        else:
-            self._rendered_text = constants.MONOFONTO[font_size].render(self._text, True, constants.BLACK)
+        self._rendered_text = None
+        self.set_string(string)
         super().__init__()
+
+    def set_string(self, string):
+        self._string = string
+        if self._multiline:
+            self._rendered_text = self._render_multiline(string, self._dimensions, self._font_size)
+        else:
+            self._rendered_text = constants.MONOFONTO[self._font_size].render(self._string, True, constants.BLACK)
 
     def draw(self, screen):
         text_box = self._rendered_text.get_rect(center=self._box.center)

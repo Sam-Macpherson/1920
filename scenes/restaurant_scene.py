@@ -18,6 +18,9 @@ class RestaurantScene(Scene):
             constants.RESTAURANT_SCENE_CLOSE_BUTTON_DIMENSIONS
         )
 
+    def handle_key_down(self, key):
+        pass
+
     def handle_mouse_motion(self, coords):
         self._close_restaurant_button.handle_mouse_motion(coords)
 

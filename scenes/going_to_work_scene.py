@@ -15,6 +15,9 @@ class GoingToWorkScene(Scene):
             constants.MAIN_MENU_EXIT_BUTTON_DIMENSIONS
         )
 
+    def handle_key_down(self, key):
+        pass
+
     def handle_mouse_motion(self, coords):
         self._skip_button.handle_mouse_motion(coords)
 

@@ -24,6 +24,9 @@ class AlarmClockScene(Scene):
             constants.ALARM_CLOCK_SCENE_SKIP_BUTTON_DIMENSIONS
         )
 
+    def handle_key_down(self, key):
+        self._dialog_box.handle_key_down(key)
+
     def handle_mouse_motion(self, coords):
         self._skip_button.handle_mouse_motion(coords)
 

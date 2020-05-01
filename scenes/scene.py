@@ -4,10 +4,10 @@ import pygame
 
 import constants
 import utilities
-from listeners import MouseListener
+from listeners import MouseListener, KeyListener
 
 
-class Scene(MouseListener, ABC):
+class Scene(MouseListener, KeyListener, ABC):
 
     def __init__(self, background, constant):
         self._constant = constant
