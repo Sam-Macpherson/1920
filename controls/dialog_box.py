@@ -3,9 +3,10 @@ import pygame
 import constants
 import utilities
 from controls import Label
+from listeners import MouseListener
 
 
-class DialogBox:
+class DialogBox(MouseListener):
 
     def __init__(self, orientation, position, dimensions, texts):
         self._texts = texts
@@ -21,6 +22,15 @@ class DialogBox:
         # TODO Fix these dastardly magic numbers.
         padded_position = position[0] + 10, position[1] + 10
         self._text_box = Label(padded_position, (720, 240), texts[0], font_size=40, multiline=True)
+
+    def handle_mouse_motion(self, coords):
+        pass
+
+    def handle_mouse_button_up(self, coords):
+        pass
+
+    def handle_mouse_button_down(self, coords):
+        pass
 
     def _draw_background(self, screen):
         self._background = pygame.transform.scale(self._background, self._dimensions)

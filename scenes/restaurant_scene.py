@@ -22,11 +22,11 @@ class RestaurantScene(Scene):
         self._close_restaurant_button.handle_mouse_motion(coords)
 
     def handle_mouse_button_up(self, coords):
-        if self._close_restaurant_button.handle_mouse_button_up():
+        if self._close_restaurant_button.handle_mouse_button_up(coords):
             raise TransitionScene
 
     def handle_mouse_button_down(self, coords):
-        self._close_restaurant_button.handle_mouse_button_down()
+        self._close_restaurant_button.handle_mouse_button_down(coords)
 
     def draw(self, screen):
         super().draw(screen)

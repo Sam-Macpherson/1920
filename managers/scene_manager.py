@@ -1,5 +1,7 @@
 import constants
+from listeners import KeyListener, MouseListener
 from scenes import *
+from pygame.constants import K_u
 
 
 class SceneFactory:
@@ -22,7 +24,7 @@ class SceneFactory:
             return None
 
 
-class SceneManager:
+class SceneManager(MouseListener, KeyListener):
 
     def __init__(self):
         self._scene_history = []  # A stack of scenes
@@ -38,7 +40,7 @@ class SceneManager:
             return self._scene_history[index]
         return None
 
-    def pop_scene(self):
+    def _pop_scene(self):
         self._current_scene_index -= 1
 
     def change_scene(self, new_scene):
@@ -57,6 +59,10 @@ class SceneManager:
             return None
         else:
             return self._scene_history[self._current_scene_index]
+
+    def handle_key_down(self, key):
+        if key == K_u:
+            self._pop_scene()
 
     def handle_mouse_motion(self, coords):
         self.current_scene().handle_mouse_motion(coords)

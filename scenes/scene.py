@@ -1,10 +1,13 @@
+from abc import ABC
+
 import pygame
 
 import constants
 import utilities
+from listeners import MouseListener
 
 
-class Scene:
+class Scene(MouseListener, ABC):
 
     def __init__(self, background, constant):
         self._constant = constant
@@ -25,15 +28,6 @@ class Scene:
 
     def constant(self):
         return self._constant
-
-    def handle_mouse_motion(self, coords):
-        raise NotImplementedError
-
-    def handle_mouse_button_up(self, coords):
-        raise NotImplementedError
-
-    def handle_mouse_button_down(self, coords):
-        raise NotImplementedError
 
     def draw(self, screen):
         self._draw_background(screen)

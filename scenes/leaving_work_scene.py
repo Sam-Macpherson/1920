@@ -19,11 +19,11 @@ class LeavingWorkScene(Scene):
         self._skip_button.handle_mouse_motion(coords)
 
     def handle_mouse_button_up(self, coords):
-        if self._skip_button.handle_mouse_button_up():
+        if self._skip_button.handle_mouse_button_up(coords):
             raise TransitionScene
 
     def handle_mouse_button_down(self, coords):
-        self._skip_button.handle_mouse_button_down()
+        self._skip_button.handle_mouse_button_down(coords)
 
     def draw(self, screen):
         super().draw(screen)

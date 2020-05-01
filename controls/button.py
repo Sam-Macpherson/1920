@@ -3,9 +3,10 @@ from pygame.rect import Rect
 import constants
 
 from controls import Label
+from listeners import MouseListener
 
 
-class Button:
+class Button(MouseListener):
 
     def __init__(self, text, position, dimensions):
         self._hovered = False
@@ -19,7 +20,7 @@ class Button:
     def handle_mouse_motion(self, coords):
         self._hovered = self._hit_box.collidepoint(coords)
 
-    def handle_mouse_button_up(self):
+    def handle_mouse_button_up(self, coords):
         clicked = False
 
         if self._hovered and self._mouse_downed:
@@ -28,7 +29,7 @@ class Button:
         self._hovered = False
         return clicked
 
-    def handle_mouse_button_down(self):
+    def handle_mouse_button_down(self, coords):
         if self._hovered:
             self._mouse_downed = True
 

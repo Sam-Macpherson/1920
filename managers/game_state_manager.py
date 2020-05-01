@@ -45,8 +45,8 @@ class GameStateManager:
         try:
             if event.type == pygame.KEYDOWN and event.key == pygame.K_q:
                 raise Terminate
-            elif event.type == pygame.KEYDOWN and event.key == pygame.K_u:
-                self._scene_manager.pop_scene()
+            elif event.type == pygame.KEYDOWN:
+                self._scene_manager.handle_key_down(event.key)
             elif event.type == pygame.MOUSEMOTION:
                 self._scene_manager.handle_mouse_motion(pygame.mouse.get_pos())
             elif event.type == pygame.MOUSEBUTTONUP:
