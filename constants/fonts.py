@@ -32,9 +32,9 @@ kindly check my F.A.Q page at: http://blog.marsnev.com/p/faq.html
 if you cannot get the answers there,
 kindly contact me at:
 email address: marsnev@marsnev.com
-
+MON
 """
-# LEMON_MILK_REGULAR = [
-#     pygame.font.Font(utilities.relative_path('font_files/LEMONMILK-Regular.otf', __file__), i)
-#     for i in range(0, measurements.MONITOR_DIMENSIONS[0])
-# ]
+LEMON_MILK_REGULAR = [
+    pygame.font.Font(utilities.relative_path('font_files/LEMONMILK-Regular.otf', __file__), i)
+    for i in range(0, measurements.MONITOR_DIMENSIONS[0])
+]

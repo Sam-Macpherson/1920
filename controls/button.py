@@ -11,7 +11,13 @@ class Button(MouseListener):
     def __init__(self, text, position, dimensions):
         self._hovered = False
         self._mouse_downed = False
-        self._label = Label(position, dimensions, text, font_size=dimensions[1] - constants.BUTTON_TEXT_PADDING)
+        self._label = Label(
+            position,
+            dimensions,
+            text,
+            font_size=dimensions[1],
+            padding=(constants.BUTTON_TEXT_PADDING, constants.BUTTON_TEXT_PADDING)
+        )
         self._hit_box = Rect(position, dimensions)
         self._position = position
         self._dimensions = dimensions

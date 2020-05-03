@@ -10,7 +10,7 @@ class Label:
     def _render_multiline(text, dimensions, font_size):
         text_surface = Surface(dimensions, constants.SRCALPHA)
         words = text.split(' ')
-        font = constants.MONOFONTO[font_size]
+        font = constants.LEMON_MILK_REGULAR[font_size]
         space = font.size(' ')[0]
         max_width, max_height = dimensions
         x, y = 0, 0
@@ -24,12 +24,17 @@ class Label:
             x += word_width + space
         return text_surface
 
-    def __init__(self, position, dimensions, string, font_size=84, multiline=False):
+    def __init__(self, position, dimensions, string, font_size=None, multiline=False, padding=(0, 0)):
         self._position = position
+        self._padding = padding
         self._dimensions = dimensions
         self._box = Rect(position, dimensions)
         self._string = string
-        self._font_size = font_size
+        if font_size:
+            self._font_size = font_size
+        else:
+            self._font_size = dimensions[1]  # Default 0 padding.
+        self._font_size -= padding[1]
         self._multiline = multiline
         self._rendered_text = None
         self.set_string(string)
@@ -40,7 +45,11 @@ class Label:
         if self._multiline:
             self._rendered_text = self._render_multiline(string, self._dimensions, self._font_size)
         else:
-            self._rendered_text = constants.MONOFONTO[self._font_size].render(self._string, True, constants.BLACK)
+            # Scales font down to fit the bounding rectangle.
+            while constants.LEMON_MILK_REGULAR[self._font_size].size(self._string)[0] > \
+                    self._dimensions[0] - self._padding[0]:
+                self._font_size -= 1
+            self._rendered_text = constants.LEMON_MILK_REGULAR[self._font_size].render(self._string, True, constants.BLACK)
 
     def draw(self, screen):
         text_box = self._rendered_text.get_rect(center=self._box.center)
