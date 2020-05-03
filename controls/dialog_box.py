@@ -9,12 +9,13 @@ from listeners import MouseListener, KeyListener
 
 class DialogBox(MouseListener, KeyListener):
 
-    def __init__(self, orientation, position, dimensions, texts):
+    def __init__(self, orientation, position, dimensions, texts, speaker_image):
         self._strings = texts
         self._current_string = 0
         self._orientation = orientation
         self._position = position
         self._dimensions = dimensions
+        self._speaker = pygame.image.load(utilities.relative_path(speaker_image, __file__))
 
         if orientation == constants.DIALOG_BOX_ORIENTATION_RIGHT:
             background_file = utilities.relative_path('control_assets/dialogBoxPictureRight.png', __file__)
@@ -51,6 +52,12 @@ class DialogBox(MouseListener, KeyListener):
         self._background = pygame.transform.scale(self._background, self._dimensions)
         screen.blit(self._background, self._position)
 
+    def _draw_speaker(self, screen):
+        # TODO Fix these dastardly magic numbers.
+        self._speaker = pygame.transform.scale(self._speaker, (160, 160))
+        screen.blit(self._speaker, (982, 730))  # Good lord that's magic.
+
     def draw(self, screen):
         self._draw_background(screen)
+        self._draw_speaker(screen)
         self._text_box.draw(screen)

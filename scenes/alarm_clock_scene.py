@@ -16,7 +16,8 @@ class AlarmClockScene(Scene):
             ['AAAA gggg yyyy zzzz.dsafsdfasdfasdfasdfaasdf awayy too long for one line.',
              'Second line.',
              'Third.',
-             'Go to work already you fruitcake.']
+             'Go to work already you fruitcake.'],
+            'control_assets/temp_clock_speaker.png'
         )
         self._skip_button = Button(
             constants.ALARM_CLOCK_SCENE_SKIP_BUTTON_TEXT,
