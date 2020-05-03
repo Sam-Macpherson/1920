@@ -1,0 +1,99 @@
+Close up store normally
+
+Scene set: Night Outside Store
+
+As you go through regular cutscene to close up store big ass dude approches behind you.
+
+"Closing oftly late."
+
+1. "Ended up working late balancing the book"
+	"Good to hear you're working so hard"
+		1.1 Ask his name
+			"Telling you will just make this harder"
+				1.1.1 Begin backing away
+					He grabs your shoulder and squeezes tight "Don't do anything you'll regret
+						1.1.1.1 Try to shout for help
+							
+						1.1.1.2 Stay quiet and listen
+							"Theres a new king in town, and everyone knows that peasents like me and you need to pay taxes to the king, I'm going to need to collect your taxes"
+							1.1.1.2.1 Ask what he means by taxes
+								GOTO 1.1.3.1.1
+							1.1.1.2.2 Tell him to go to hell
+								GOTO 1.1.3.1.2
+						1.1.1.3 Swing your fist at the bastard
+							It's not very effective GOTO 1.1.1.2
+				1.1.2 Try to run back into the store
+					GOTO 1.1.1
+				1.1.3 Ask him what will be harder
+					1.1.3.1 "Theres a new king in town, and everyone knows that peasents like me and you need to pay taxes to the king, I'm going to need to collect your taxes"
+						1.1.3.1.1 Ask what he means by taxes
+							"It's simple, pay up or face consequences"
+								1.1.3.1.1.1 Pay up (-Whatever)
+									GOTO 1.1.3.1.2.1
+								1.1.3.1.1.2 Tell him you wont pay, consequences be damned
+									"A shame. I'm sure you'll change your tune soon enough" He leaves
+						1.1.3.1.2 Tell him to go to hell
+							"That's more like it, pay the fine or face the consequences."
+								1.1.3.1.2.1 Say you'll pay (-Whatever)
+									"Made this nice and easy, I'll remember that."
+								1.1.3.1.2.2 Tell him you wont pay, consequences be damned
+									"A shame, I'm sure you'll change your tune soon enough" He leaves
+		1.2 Tell him you need to head out
+			"It'll only take a second and I'll make it nice and simple. Theres a new king in town, and everyone knows that peasents like me and you need to pay taxes to the king, I'm going to need to collect your taxes"
+				GOTO 1.1.3.1
+		1.3 Ask him why he cares
+			"It's not me who needs to care, Theres a new king in town, and everyone knows that peasents like me and you need to pay taxes to the king, I'm going to need to collect your taxes"
+				GOTO 1.1.3.1
+2. Ignore him
+	"I think it's for the best you listen here."
+		2.1 Ask him what he wants.
+			"This place is now under new ownership, I'm here to collect your rent payment"
+				2.1.1 Ask what happens if you don't pay
+					"It'll be more expensive than you could ever guess"
+						2.1.1.1 Pay up
+							GOTO 2.1.3
+						2.1.1.2 Say you can't pay
+							"A shame, I'm sure you'll come around" He leaves
+						2.1.1.3 Tell him you have no reason to pay the bastard
+							"You'll know the reason tommorow" He leaves
+				2.1.2 Say you don't have the money
+					"Heard that a thousand times, pay up"
+						2.1.2.1 Pay up 
+							GOTO 2.1.3
+						2.1.2.2 Tell him you can't
+							"A shame, I'm sure you'll come around." He leaves
+						2.1.2.3 Tell him you wont
+							"You'll change your tune soon enough" He leaves
+				2.1.3 Pay him the money (-Whatever)
+					"It's been a pleasure" he walks off
+		2.2 Continue to ignore him
+			"I'll give you one more chance to give me the respect I deserve"
+				2.2.1 Ask him what he wants.
+					GOTO 2.1
+				2.2.2 Continue to ignore him
+					He laughs "Fine have it your way. I'll be back , be sure to listen next time." END OF CONVO
+3. "Fuck off dude"
+	He punches you "Not exactly polite are you."
+		3.1 Gasp in pain
+			"Learn your lesson?"
+				3.1.1 "Yes"
+					"Good, now your going to listen to what I say. This place is now under new ownership, your just renting it from us."
+						3.1.1.1 Listen quietly
+							"We're more than happy to rent it to you for a fee".
+								3.1.1.1.1 I barely have enough money as it is.
+									"Heard that a thousand times, pay up.
+										3.1.1.1.1.1 I don't have the money
+											"Seems you need a lesson" Guy leaves
+										3.1.1.1.1.2 Fine
+											"I'll be back tommorow, make sure to have the same amount ready"
+								3.1.1.1.2 fuck off
+									"I've had enough, clearly you need a lesson in respect MAN LEAVES
+								3.1.1.1.3 Try to punch him
+									You Miss rather pathetically
+										GOTO 3.1.1.1.2
+						3.1.1.2 Teach this asshole a lesson
+							GOTO 3.1.1.1.3
+				3.1.2 "Fuck you"
+		3.3 Punch him back.
+			You Miss rather pathetically.
+				GOTO 3.1.1.1.2
