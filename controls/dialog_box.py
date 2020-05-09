@@ -9,9 +9,8 @@ from listeners import MouseListener, KeyListener
 
 class DialogBox(MouseListener, KeyListener):
 
-    def __init__(self, orientation, position, dimensions, texts, speaker_image):
-        self._strings = texts
-        self._current_string = 0
+    def __init__(self, orientation, position, dimensions, dialog_tree, speaker_image):
+        self._current_node = dialog_tree
         self._orientation = orientation
         self._position = position
         self._dimensions = dimensions
@@ -23,14 +22,13 @@ class DialogBox(MouseListener, KeyListener):
         self._text_box = Label(padded_position,
                                (constants.DIALOG_BOX_DIMENSIONS[0] * .75 - (2 * constants.DIALOG_BOX_TEXT_PADDING),
                                 constants.DIALOG_BOX_DIMENSIONS[1] * .75 - (2 * constants.DIALOG_BOX_TEXT_PADDING)),
-                               self._strings[self._current_string],
+                               self._current_node.get_text(),
                                font_size=35,
                                multiline=True)
 
     def _next_string(self):
-        if self._current_string < len(self._strings) - 1:
-            self._current_string += 1
-            self._text_box.set_string(self._strings[self._current_string])
+        self._current_node = self._current_node.follow_link(0)
+        self._text_box.set_string(self._current_node.get_text())
 
     def handle_key_down(self, key):
         if key == K_SPACE:

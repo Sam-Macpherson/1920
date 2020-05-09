@@ -1,4 +1,5 @@
 import constants
+import utilities
 from controls import Button, DialogBox
 from exceptions import TransitionScene
 from .scene import Scene
@@ -9,14 +10,12 @@ class AlarmClockScene(Scene):
     def __init__(self):
         super().__init__('background_images/alarmClockScene.png',
                          constants.ALARM_CLOCK_SCENE)
+        parser = utilities.DialogTreeParser('../writing/test_dialog.json')
         self._dialog_box = DialogBox(
             constants.DIALOG_BOX_ORIENTATION_RIGHT,
             constants.DIALOG_BOX_COORDS,
             constants.DIALOG_BOX_DIMENSIONS,
-            ['AAAA gggg yyyy zzzz.dsafsdfasdfasdfasdfaasdf awayy too long for one line.',
-             'Second line.',
-             'Third.',
-             'Go to work already you fruitcake.'],
+            parser.parse(),
             'control_assets/temp_clock_speaker.png'
         )
         self._skip_button = Button(

@@ -1,0 +1,44 @@
+[
+	{
+		"id": 0,
+		"text": "Closing awfully late.",
+		"links": [
+			{
+				"linkTo": 1,
+				"choice": "Ended up staying late balancing the books.",
+				"condition": "True"
+			},
+			{
+				"linkTo": 1,
+				"choice": "Give him 100 dollars.",
+				"condition": "money > 100"
+			},
+			{
+				"linkTo": 1,
+				"choice": "Fuck off dude.",
+				"condition": "True"
+			}
+		]
+	},
+	{
+		"id": 1,
+		"text": "Good to hear you're working so hard.",
+		"links": [
+			{
+				"linkTo": 1,
+				"choice": "What's your name?",
+				"condition": "True"
+			},
+			{
+				"linkTo": 1,
+				"choice": "I need to head out.",
+				"condition": "True"
+			},
+			{
+				"linkTo": 1,
+				"choice": "Why do you care?",
+				"condition": "True"
+			}
+		]
+	}
+]
