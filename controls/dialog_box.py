@@ -16,18 +16,15 @@ class DialogBox(MouseListener, KeyListener):
         self._position = position
         self._dimensions = dimensions
         self._speaker = pygame.image.load(utilities.relative_path(speaker_image, __file__))
-
-        if orientation == constants.DIALOG_BOX_ORIENTATION_RIGHT:
-            background_file = utilities.relative_path('control_assets/dialogBoxPictureRight.png', __file__)
-        else:
-            background_file = utilities.relative_path('control_assets/dialogBoxPictureLeft.png', __file__)
+        background_file = utilities.relative_path('control_assets/dialogBox.png', __file__)
         self._background = pygame.image.load(background_file)
-        # TODO Fix these dastardly magic numbers.
-        padded_position = position[0] + 10, position[1] + 10
+        padded_position = (position[0] + constants.DIALOG_BOX_TEXT_PADDING,
+                           position[1] + constants.DIALOG_BOX_TEXT_PADDING)
         self._text_box = Label(padded_position,
-                               (720, 240),
+                               (constants.DIALOG_BOX_DIMENSIONS[0] * .75 - (2 * constants.DIALOG_BOX_TEXT_PADDING),
+                                constants.DIALOG_BOX_DIMENSIONS[1] * .75 - (2 * constants.DIALOG_BOX_TEXT_PADDING)),
                                self._strings[self._current_string],
-                               font_size=40,
+                               font_size=35,
                                multiline=True)
 
     def _next_string(self):
@@ -53,9 +50,12 @@ class DialogBox(MouseListener, KeyListener):
         screen.blit(self._background, self._position)
 
     def _draw_speaker(self, screen):
-        # TODO Fix these dastardly magic numbers.
-        self._speaker = pygame.transform.scale(self._speaker, (160, 160))
-        screen.blit(self._speaker, (982, 730))  # Good lord that's magic.
+        speaker_dimensions = (int(constants.DIALOG_BOX_DIMENSIONS[0] * .25),
+                              int(constants.DIALOG_BOX_DIMENSIONS[0] * .25))
+        self._speaker = pygame.transform.scale(self._speaker, speaker_dimensions)
+        speaker_position = (constants.DIALOG_BOX_COORDS[0] + int(0.75 * constants.DIALOG_BOX_DIMENSIONS[0]),
+                            constants.DIALOG_BOX_COORDS[1])
+        screen.blit(self._speaker, speaker_position)
 
     def draw(self, screen):
         self._draw_background(screen)
