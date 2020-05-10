@@ -10,12 +10,12 @@ class AlarmClockScene(Scene):
     def __init__(self):
         super().__init__('background_images/alarmClockScene.png',
                          constants.ALARM_CLOCK_SCENE)
-        parser = utilities.DialogTreeParser('../writing/test_dialog.json')
+        root = utilities.DialogTreeParser.get_instance().parse('../writing/test_dialog.json')
         self._dialog_box = DialogBox(
             constants.DIALOG_BOX_ORIENTATION_RIGHT,
             constants.DIALOG_BOX_COORDS,
             constants.DIALOG_BOX_DIMENSIONS,
-            parser.parse(),
+            root,
             'control_assets/temp_clock_speaker.png'
         )
         self._skip_button = Button(

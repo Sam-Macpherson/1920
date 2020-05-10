@@ -3,12 +3,23 @@ import utilities
 
 
 class DialogTreeParser:
+    __instance = None
 
-    def __init__(self, file):
-        self._file = file
+    @staticmethod
+    def get_instance():
+        if not DialogTreeParser.__instance:
+            DialogTreeParser()
+        return DialogTreeParser.__instance
 
-    def parse(self):
-        with open(utilities.relative_path(self._file, __file__)) as json_file:
+    def __init__(self):
+        if DialogTreeParser.__instance is not None:
+            raise Exception('DialogTreeParser is a singleton.')
+        else:
+            DialogTreeParser.__instance = self
+
+    @staticmethod
+    def parse(file):
+        with open(utilities.relative_path(file, __file__)) as json_file:
             data = json.load(json_file)
             # Generate all the nodes first.
             nodes = {}
@@ -18,8 +29,9 @@ class DialogTreeParser:
             for node in data:
                 links = []
                 for link in node['links']:
-                    condition = DialogCondition(link['condition'])
-                    links.append(DialogLink(nodes[link['linkTo']], link['choice'], condition))
+                    script = DialogScript(link['script']) if 'script' in link else None
+                    condition = DialogCondition(link['condition']) if 'condition' in link else None
+                    links.append(DialogLink(nodes[link['linkTo']], link['choice'], condition, script))
                 nodes[node['id']].add_links(links)
             # Return the root node.
             return nodes[0]
@@ -46,11 +58,12 @@ class DialogNode:
 
 class DialogLink:
 
-    def __init__(self, link_to, text, condition):
+    def __init__(self, link_to, text, condition, script):
         # link_to is a DialogNode reference, NOT an identifier.
         self._link_to = link_to
         self._text = text
         self._condition = condition
+        self._script = script
 
     def next_node(self):
         return self._link_to
@@ -66,4 +79,9 @@ class DialogCondition:
 
 
 class DialogScript:
-    pass
+
+    def __init__(self, script):
+        self._script = script
+
+    def execute(self):
+        return exec(self._script)

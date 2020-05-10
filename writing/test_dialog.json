@@ -5,18 +5,17 @@
 		"links": [
 			{
 				"linkTo": 1,
-				"choice": "Ended up staying late balancing the books.",
-				"condition": "True"
+				"choice": "Ended up staying late balancing the books."
 			},
 			{
 				"linkTo": 1,
 				"choice": "Give him 100 dollars.",
-				"condition": "money > 100"
+				"condition": "money > 100",
+				"script": "money -= 100"
 			},
 			{
 				"linkTo": 1,
-				"choice": "Fuck off dude.",
-				"condition": "True"
+				"choice": "Fuck off dude."
 			}
 		]
 	},
@@ -26,18 +25,15 @@
 		"links": [
 			{
 				"linkTo": 1,
-				"choice": "What's your name?",
-				"condition": "True"
+				"choice": "What's your name?"
 			},
 			{
 				"linkTo": 1,
-				"choice": "I need to head out.",
-				"condition": "True"
+				"choice": "I need to head out."
 			},
 			{
 				"linkTo": 1,
-				"choice": "Why do you care?",
-				"condition": "True"
+				"choice": "Why do you care?"
 			}
 		]
 	}
