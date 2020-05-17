@@ -1,0 +1,336 @@
+[
+	{
+		id:0,
+		text: "I heard this place had some c h o i c e products for sale",
+		links:
+		[
+			{
+				link:1,
+				choice: "Tell the kid you do, if he has the cash.",
+				condition: "True",
+				script: "None"
+			}
+			{
+				link:2,
+				choice: "Whisper to the kid to keep it down.",
+				condition: "True",
+				script: "None"
+			}
+			{
+				link:3,
+				choice: "Smack the moron.",
+				condition: "True",
+				script: "None"
+			}
+		]
+	}
+	{
+		id:1,
+		text: "Of course I have the cash, how much we talking here.",
+		links:
+		[
+			{
+				link:11,
+				choice: "Quote Price.",
+				condition: "True",
+				script: "RewardModification = 1"
+			}
+			{
+				link:11,
+				choice: "Quote inflated price (50% Higher).",
+				condition: "True",
+				script: "RewardModification = 1.5"
+			}
+			{
+				link:13,
+				choice "Tell the kid you changed your mind. Your not gonna sell to trash.",
+				condition: "True",
+				script: "None"
+			}
+		]
+	}
+	{
+		id:11,
+		text: "Deal, now give it here. Me and my buddies were looking for a place like this, I'll let em know.",
+		links:
+		[
+			{
+				link:111,
+				choice: "Tell the kid it was a pleasure doing buisness with him.",
+				condition: "True",
+				script: "money + price*RewardModification"
+			}
+			{
+				link:112,
+				choice: "Tell the kid to keep his damn mouth shut.",
+				condition: "True",
+				script: "None"
+			}
+		]
+	}
+	{
+		id:13,
+		text: "You've already up and admited your a dealer. You really think I'll keep quiet?",
+		links:
+		[
+			{
+				link:11,
+				choice: "Tell the kid you'll deal with him, if he stays quiet and has the cash.",
+				condition: "True",
+				script: "None"
+			}
+			{
+				link:132,
+				choice: "Tell the kid if he squeals he'll die.",
+				condition: "True",
+				script: "PoliceSus + 50"
+			}
+			{
+				link:133,
+				choice: "Laugh at the kid and turn away."
+				condition: "True",
+				script: "PoliceSus + 50"
+			}
+		]
+	}
+	{
+		id:132,
+		text: "The kid runs out the door. Police suspicion has increased.",
+		links:"None"
+	}
+	{
+		id:133,
+		text: "I'll get you for this asshole",
+		links:"None"
+	}
+	{
+		id:111,
+		text: "As long as your stuff doesn't taste like shit you'll get more of it.",
+		links: "None"
+	}
+	{
+		id:112,
+		text: "I'll tell who I damn well please. You think you can threaten me with flour on your hands?",
+		links:
+		[
+			{
+				link:1121,
+				choice: "Smack the moron.",
+				condition: "True",
+				script: "None"
+			}
+		]
+	}
+	{
+		id:1121,
+		text: "Fuck that hurt, y-you think your gonna get away with hittin a customer",
+		links:
+		[
+			{
+				link:11211,
+				choice: "Tell the kid if he wants to remain a customer he's gonna need to shut up.",
+				condition: "True",
+				script: "money + price*RewardModification"
+			}
+			{
+				link:11212,
+				choice: "Apologize to the moron.",
+				condition: "True",
+				script: "money + price*RewardModification"
+			}
+			{
+				link:11213,
+				choice: "Tell the kid you'll never sell to him again.",
+				condition: "True",
+				script: "None"
+			}
+		]
+	}
+	{
+		id:11211,
+		text: "F-Fine.",
+		links: "None"
+	}
+	{
+		id:11212,
+		text: "R-Right, well I'll let you off the hook this time a-afterall it was such a w-weak hit I feel bad.",
+		links: "None"
+	}
+	{
+		id:11213,
+		text: "W-Wait, I'll give you extra and I'll keep quiet.",
+		links:
+		[
+			{
+				link:112131,
+				choice: "Tell him to get out and never show his face again.",
+				condition: "True",
+				script: "None"
+			}
+			{
+				link:112132,
+				choice: "Accept the money.",
+				condition: "True",
+				script: "money + price*RewardModification*2"
+			}
+		]
+	}
+	{
+		id:112131,
+		text: "The kid runs out crying.",
+		links: "None"
+	}
+	{
+		id:112132,
+		text: "After taking the kids money he runs out in tears.",
+		links: "None"
+	}
+	{
+		id:2,
+		text: "I'll be quiet as a mouse as long as you sell me something.",
+		links:
+		[
+			{
+				link:1,
+				choice: "Ask the kid if he has the cash.",
+				condition: "True",
+				script: "None"
+			}
+			{
+				link:13,
+				choice: "Say you won't deal with kids who can't keep thier mouth shut.",
+				condition: "True",
+				script: "None"
+			}
+			{
+				link:23,
+				choice: "Say you don't know what he's talking about, what does he mean by C H O I C E product.",
+				condition: "True",
+				script: "None"
+			}
+		]
+	}
+	{
+		id:23,
+		text: "If you need me to say it, maybe I've got the wrong place",
+		links:
+		[
+			{
+				link:1,
+				choice: "Admit you know what he's talking about, ask if he has the cash.",
+				condition: "True",
+				script: "None"
+			}
+			{
+				link:13,
+				choice: "Ask if he wants any pizza.",
+				condition: "True",
+				script: "None"
+			}
+		]
+	}
+	{
+		id:3,
+		text: "OUCH, I get it.",
+		links:
+		[
+			{
+				link:1,
+				choice: "Tell him your glad he understands so quickly, does he have the cash.",
+				condition: "True",
+				script: "None"
+			}
+			{
+				link:13,
+				choice: "Tell him you won't sell to a child, he needs to get the hell out of your store.",
+				condition: "True",
+				script: "None"
+			}
+			{
+				link:33,
+				choice: "Smack the moron again.",
+				condition: "True",
+				script: "None"
+			}
+		]
+	}
+	{
+		id:33,
+		text: "OUCH, I get it.",
+		links:
+		[
+			{
+				link:331,
+				choice: "Ask if he really gets it.",
+				condition: "True",
+				script: "None"
+			}
+			{
+				link:332,
+				choice: "Smack the moron as hard as possible",
+				condition: "True",
+				script: "PoliceSus + 50, CustSatasfaction - 50"
+			}
+		]
+	}
+	{
+		id:331,
+		text: "I get it, I have the cash I'll pay any price, just name it.",
+		links:
+		[
+			{
+				link:3311,
+				choice: "Name the correct price.",
+				condition: "True",
+				script: "money + price"
+			}
+			{
+				link:3311,
+				choice: "Name a large price (1.5 times regular).",
+				condition: "True",
+				script: "money + price * 1.5"
+			}
+			{
+				link:3313,
+				choice: "Name an insane price (Triple the regular).",
+				condition: "True",
+				script: "None"
+			}
+		]
+	}
+	{
+		id:3311,
+		text: "D-Deal, now give it here",
+		links: "None"
+	}
+	{
+		id:3313,
+		text: "That's insane I can't pay that.",
+		links:
+		[
+			{
+				link:3311,
+				choice: "Reduce the price to regular.",
+				condition: "True",
+				script: "money + price"
+			}
+			{
+				link:3313,
+				choice: "Tell the kid that's your final",
+				condition: "True",
+				script: "money + price * 3"
+			}
+			{
+				link:332,
+				choice: "Smack the moron as hard as possible",
+				condition: "True",
+				script: "PoliceSus + 50, CustSatasfaction - 50"
+			}
+		]
+	}
+	{
+		id:332,
+		text: "The sound reverberates throughout the store, the kid lies on the groud crying. Police suspicion goes up. Customer satasfaction goes down.",
+		links: "None"
+	}
+]
