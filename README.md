@@ -1,6 +1,6 @@
 # 1920
 
-Game about twirling pizzas and selling alcohol.
+Game about twirling pizzas and selling alcohol. An interesting work-in-progress as a side project.
 
 ## Trello board
 Join the trello board here:
